@@ -3,11 +3,11 @@
   "parkingLotAddress": "15714 Melrose Ave, Beverly Hills, CA 90201",
   "parkingLotSpot": 21,
   "start": {
-    "date": "",
-    "time": ""
+    "date": "2019-02-20",
+    "time": "12:00 AM"
   },
   "end": {
-    "date": "",
-    "time": ""
+    "date": "2019-03-20",
+    "time": "12:00 AM"
   }
 }

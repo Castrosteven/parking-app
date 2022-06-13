@@ -1,5 +1,5 @@
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
-import DirrectionIcon from "../../../../assets/images/s-icon-directions.svg";
+import DirrectionIcon from "../../../../../assets/images/s-icon-directions.svg";
 export const GetDirectionsButton = () => {
   return (
     <TouchableOpacity style={styles.container}>

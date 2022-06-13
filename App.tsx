@@ -4,6 +4,7 @@ import { useFonts } from "expo-font";
 import { Header } from "./src/components/Header";
 import CloseIcon from "./assets/images/icon-close.svg";
 import { ParkingCard } from "./src/components/ParkingCard";
+import { Button } from "./src/components/Button";
 export default function App() {
   let [fontsLoaded] = useFonts({
     "rubik-black": require("./assets/fonts/Rubik-Black.ttf"),
@@ -14,15 +15,16 @@ export default function App() {
   }
   return (
     <View style={styles.container}>
-      <View
-        style={{
-          marginTop: 58,
-        }}
-      >
+      <View style={styles.closeButtonContainer}>
         <CloseIcon />
       </View>
-      <Header />
+      <View style={styles.headerContainer}>
+        <Header />
+      </View>
       <ParkingCard />
+      <View style={styles.buttonContainer}>
+        <Button />
+      </View>
     </View>
   );
 }
@@ -32,5 +34,16 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#F6C62D",
     padding: 16,
+  },
+  closeButtonContainer: {
+    marginTop: 58,
+  },
+  headerContainer: {
+    marginLeft: 8,
+    marginTop: 34,
+    width: 311,
+  },
+  buttonContainer: {
+    marginTop: 24,
   },
 });

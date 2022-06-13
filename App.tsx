@@ -1,11 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-
+import { StyleSheet, Text, View } from "react-native";
+import AppLoading from "expo-app-loading";
+import { useFonts } from "expo-font";
+import { Header } from "./src/components/Header";
+import CloseIcon from "./assets/images/icon-close.svg";
+import { ParkingCard } from "./src/components/ParkingCard";
 export default function App() {
+  let [fontsLoaded] = useFonts({
+    "rubik-black": require("./assets/fonts/Rubik-Black.ttf"),
+    "rubik-regular": require("./assets/fonts/Rubik-Regular.ttf"),
+  });
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  }
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <View
+        style={{
+          marginTop: 58,
+        }}
+      >
+        <CloseIcon />
+      </View>
+      <Header />
+      <ParkingCard />
     </View>
   );
 }
@@ -13,8 +30,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#F6C62D",
+    padding: 16,
   },
 });

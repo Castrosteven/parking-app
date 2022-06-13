@@ -9,6 +9,9 @@ export default function App() {
   let [fontsLoaded] = useFonts({
     "rubik-black": require("./assets/fonts/Rubik-Black.ttf"),
     "rubik-regular": require("./assets/fonts/Rubik-Regular.ttf"),
+    "rubik-medium": require("./assets/fonts/Rubik-Medium.ttf"),
+    "rubik-bold": require("./assets/fonts/Rubik-Bold.ttf"),
+    "gt-america-bold": require("./assets/fonts/gt-america-bold.ttf"),
   });
   if (!fontsLoaded) {
     return <AppLoading />;

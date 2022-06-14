@@ -1,6 +1,8 @@
 import { View, Image, Text } from "react-native";
 import ChatIcon from "../../../../assets/images/icon-messages.svg";
+import Data from "../../../../data.json";
 export const BottomCard = () => {
+  const { parkingLotRepName, parkingLotRepTitle } = Data;
   return (
     <View
       style={{
@@ -27,8 +29,10 @@ export const BottomCard = () => {
           style={{ width: 40, height: 40, borderRadius: 50 }}
         />
         <View style={{ marginLeft: 12 }}>
-          <Text style={{ fontFamily: "rubik-medium" }}>Annie W.</Text>
-          <Text style={{ color: "#00000080" }}>Owner</Text>
+          <Text style={{ fontFamily: "rubik-medium" }}>
+            {parkingLotRepName}
+          </Text>
+          <Text style={{ color: "#00000080" }}>{parkingLotRepTitle}</Text>
         </View>
       </View>
       <View style={{ marginRight: 24 }}>

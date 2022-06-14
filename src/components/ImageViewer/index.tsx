@@ -1,6 +1,12 @@
-import { View, Image } from "react-native";
+import { View, Image, TouchableOpacity } from "react-native";
 import CloseIcon from "../../../assets/images/icon-close.svg";
-export const ImageViewer = ({ uri }: { uri: string }) => {
+export const ImageViewer = ({
+  uri,
+  closeImageViewer,
+}: {
+  uri: string;
+  closeImageViewer: () => void;
+}) => {
   return (
     <View
       style={{
@@ -10,7 +16,13 @@ export const ImageViewer = ({ uri }: { uri: string }) => {
       }}
     >
       <View style={{ paddingTop: 58, paddingLeft: 26 }}>
-        <CloseIcon />
+        <TouchableOpacity
+          onPress={() => {
+            closeImageViewer();
+          }}
+        >
+          <CloseIcon />
+        </TouchableOpacity>
       </View>
       <View
         style={{

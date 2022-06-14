@@ -2,46 +2,44 @@ import { Text, TouchableOpacity, View, Alert } from "react-native";
 import CameraIcon from "../../../assets/images/icon-camera.svg";
 export const Button = ({ onPress }: { onPress: () => void }) => {
   return (
-    <View>
-      <TouchableOpacity
-        onPress={() => onPress()}
+    <TouchableOpacity
+      onPress={() => onPress()}
+      style={{
+        backgroundColor: "#000000",
+        height: 60,
+        borderRadius: 24,
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-between",
+        width: "100%",
+      }}
+    >
+      <View
         style={{
-          backgroundColor: "#000000",
-          height: 60,
-          borderRadius: 24,
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-          width: "100%",
+          marginLeft: 22,
+          marginRight: 2,
         }}
       >
-        <View
+        <CameraIcon />
+      </View>
+      <View
+        style={{
+          width: 299,
+          display: "flex",
+        }}
+      >
+        <Text
           style={{
-            marginLeft: 22,
-            marginRight: 2,
+            fontFamily: "rubik-black",
+            color: "white",
+            fontSize: 17,
+            textAlign: "center",
           }}
         >
-          <CameraIcon />
-        </View>
-        <View
-          style={{
-            width: 299,
-            display: "flex",
-          }}
-        >
-          <Text
-            style={{
-              fontFamily: "rubik-black",
-              color: "white",
-              fontSize: 17,
-              textAlign: "center",
-            }}
-          >
-            IDENTIFY YOUR VEHICLE
-          </Text>
-        </View>
-      </TouchableOpacity>
-    </View>
+          IDENTIFY YOUR VEHICLE
+        </Text>
+      </View>
+    </TouchableOpacity>
   );
 };

@@ -1,18 +1,13 @@
 import { Camera, CameraType, requestCameraPermissionsAsync } from "expo-camera";
 import { useEffect, useState } from "react";
-import {
-  CameraRoll,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { ImageViewer } from "../ImageViewer";
+import CameraIcon from "../../../assets/images/icon-camera.svg";
+import CloseIcon from "../../../assets/images/icon-close.svg";
 
 export const CameraView = ({ onPress }: { onPress: () => void }) => {
   const [hasPermission, setHasPermission] = useState<boolean | null>(null);
   const [imgFile, setImgFile] = useState<string | null>(null);
-  const [type, setType] = useState(CameraType.back);
   let camera: Camera;
   useEffect(() => {
     (async () => {
@@ -40,31 +35,34 @@ export const CameraView = ({ onPress }: { onPress: () => void }) => {
   return (
     <View style={styles.container}>
       {imgFile !== null ? (
-        <ImageViewer uri={imgFile} />
+        <ImageViewer uri={imgFile} closeImageViewer={onPress} />
       ) : (
         <Camera
           ref={(ref) => (camera = ref!)}
           style={styles.camera}
-          type={type}
+          type={CameraType.back}
         >
           <View style={styles.buttonContainer}>
             <TouchableOpacity
-              style={styles.button}
+              style={{
+                position: "absolute",
+                left: 50,
+              }}
               onPress={() => {
                 onPress();
               }}
             >
-              <Text style={styles.text}> X </Text>
+              <CloseIcon />
             </TouchableOpacity>
             <TouchableOpacity
-              style={styles.button}
               onPress={() => {
                 takeApicture();
               }}
             >
-              <Text style={styles.text}> P </Text>
+              <CameraIcon width={40} height={40} />
             </TouchableOpacity>
           </View>
+          <View></View>
         </Camera>
       )}
     </View>
@@ -77,20 +75,20 @@ const styles = StyleSheet.create({
   },
   camera: {
     flex: 1,
+    flexDirection: "column",
+    justifyContent: "flex-end",
   },
   buttonContainer: {
-    flex: 1,
-    backgroundColor: "transparent",
-    flexDirection: "row",
-    margin: 20,
-  },
-  button: {
-    flex: 0.1,
-    alignSelf: "flex-end",
+    display: "flex",
+    justifyContent: "center",
     alignItems: "center",
+    backgroundColor: "white",
+    height: 50,
+    flexDirection: "row",
   },
+  button: {},
   text: {
     fontSize: 18,
-    color: "white",
+    color: "black",
   },
 });

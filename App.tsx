@@ -1,4 +1,4 @@
-import { Alert, StyleSheet, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import Geocoder from "react-native-geocoding";
@@ -7,7 +7,8 @@ import { useCallback, useEffect, useState } from "react";
 import { BackgroundMap } from "./src/components/BackgroundMap";
 import { MainScreen } from "./src/components/MainScreen";
 import { CameraView } from "./src/components/CameraView";
-import { Camera } from "expo-camera";
+import { LinearGradient } from "expo-linear-gradient";
+
 const apiKey = "AIzaSyD80EzHhyTX-JMyPyrhBiygJY4RXFv7qus";
 Geocoder.init(apiKey);
 
@@ -80,7 +81,14 @@ export default function App() {
       <View onLayout={onLayoutRootView}>
         <BackgroundMap mapRegion={mapRegion} />
         {/* OVERLAY */}
-        <View style={styles.overlay} />
+        {/* <View style={styles.overlay} /> */}
+        <LinearGradient
+          colors={["rgba(246,198,45,1)", "rgba(246,198,45,0.666001400560224)"]}
+          start={[0, 0.25]}
+          end={[0, 0]}
+          locations={[0.1, 0.3]}
+          style={styles.overlay}
+        />
         {/* Main View */}
         <MainScreen onPress={__startCamera} />
       </View>
@@ -90,9 +98,10 @@ export default function App() {
 
 const styles = StyleSheet.create({
   overlay: {
-    backgroundColor: "#F6C62D",
     position: "absolute",
-    opacity: 0.75,
+    left: 0,
+    right: 0,
+    top: 0,
     padding: "100%",
   },
 });

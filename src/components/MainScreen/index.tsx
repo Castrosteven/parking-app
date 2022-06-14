@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     padding: "100%",
   },
   closeButtonContainer: {
-    marginTop: 58,
+    marginTop: 58 - 16,
   },
   headerContainer: {
     marginLeft: 8,
